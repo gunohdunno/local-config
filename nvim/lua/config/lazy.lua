@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -30,6 +30,8 @@ vim.bo.softtabstop = 2
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.colorcolumn = "80"
+
 -- vim split pane remap
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
@@ -52,4 +54,3 @@ require("lazy").setup({
     notify = false,
   },
 })
-
